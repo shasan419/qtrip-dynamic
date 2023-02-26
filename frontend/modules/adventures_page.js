@@ -15,7 +15,7 @@ async function fetchAdventures(city) {
   // TODO: MODULE_ADVENTURES
   // 1. Fetch adventures using the Backend API and return the data
   try{
-    const res = fetch('http://65.1.76.194:8082/adventures?city='+city).then(x=>x.json()).catch(e=>console.log(e));
+    const res = fetch(`${config.backendEndpoint}/adventures?city=${city}`).then(x=>x.json()).catch(e=>console.log(e));
     console.log(res)
     return res;
 

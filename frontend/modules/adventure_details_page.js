@@ -15,7 +15,7 @@ async function fetchAdventureDetails(adventureId) {
   // TODO: MODULE_ADVENTURE_DETAILS
   // 1. Fetch the details of the adventure by making an API call
   try {
-    const res = fetch('http://65.1.76.194:8082/adventures/detail?adventure=' + adventureId).then(x => x.json()).catch(e => console.log(e));
+    const res = fetch(`${config.backendEndpoint}/adventures/detail?adventure=${adventureId}`).then(x => x.json()).catch(e => console.log(e));
     console.log(res)
     return res;
 

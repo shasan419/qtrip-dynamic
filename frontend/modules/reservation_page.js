@@ -5,7 +5,7 @@ async function fetchReservations() {
   // TODO: MODULE_RESERVATIONS
   // 1. Fetch Reservations by invoking the REST API and return them
   try {
-    const res = fetch('http://65.1.76.194:8082/reservations/').then(x => x.json()).catch(e => console.log(e));
+    const res = fetch(`${config.backendEndpoint}/reservations/`).then(x => x.json()).catch(e => console.log(e));
     console.log(res)
     return res;
 
@@ -32,7 +32,7 @@ function addReservationToTable(reservations) {
       let tr = document.createElement("tr");
       let td1 = document.createElement("td");
       let a = document.createElement("a");
-      a.href = "http://65.1.76.194:8081/frontend/pages/adventures/detail/?adventure=" + x.adventure;
+      a.href = `/pages/adventures/detail/?adventure=${x.adventure}`;
       a.innerHTML = "<b>" + x.id + "</b>";
       td1.appendChild(a);
       let td2 = document.createElement("td");
@@ -53,7 +53,7 @@ function addReservationToTable(reservations) {
       td8.id = x.id;
       td8.classList.add("reservation-visit-button");
       let btn = document.createElement("a");
-      btn.href = "http://65.1.76.194:8081/frontend/pages/adventures/detail/?adventure=" + x.adventure;
+      btn.href = `/pages/adventures/detail/?adventure=${x.adventure}`;
       btn.innerHTML = "Visit Adventure";
       td8.appendChild(btn);
       tr.appendChild(td1);
